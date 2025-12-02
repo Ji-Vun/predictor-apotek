@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediksi Penjualan Obat</title>
+
+    <style>
+        /* --- semua CSS kamu tetap --- */
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f6ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 420px;
+            margin: 60px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #444;
+        }
+
+        select, input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        .input-text {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #3a6eff;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+
+        button:hover {
+            background: #2f59d9;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    <h2>Prediksi Stok Penggunaan Obat</h2>
+
+    <form action="/predict" method="post">
+
+        <label>Nama Obat:</label>
+        <input type="text" name="nama_obat" class="input-text" placeholder="Contoh: Paracetamol" required>
+
+        <label>Jenis Obat:</label>
+        <select name="obat" required>
+            {% for o in obat_list %}
+                <option value="{{ o }}">{{ o }}</option>
+            {% endfor %}
+        </select>
+
+        <label>Tanggal Mulai:</label>
+        <input type="date" name="start" required>
+
+        <label>Tanggal Akhir:</label>
+        <input type="date" name="end" required>
+
+        <button type="submit">Prediksi</button>
+    </form>
+</div>
+
+<!-- ✅ TARUH SCRIPT DI SINI -->
+<script>
+document.querySelector("form").addEventListener("submit", function(e) {
+    let start = document.querySelector("input[name='start']").value;
+    let end = document.querySelector("input[name='end']").value;
+
+    if (start > end) {
+        e.preventDefault();
+        alert("Tanggal mulai tidak boleh lebih besar dari tanggal akhir!");
+    }
+});
+</script>
+
+</body>
+</html>

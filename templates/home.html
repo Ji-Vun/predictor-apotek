@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Apotek Predictor</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url("/static/bg.jpg") no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+
+        .navbar a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .content {
+            text-align: center;
+            margin-top: 180px;
+            color: white;
+            text-shadow: 0 0 10px black;
+        }
+
+        .btn-start {
+    background: white;
+    color: black;       /* ⚫ warna teks hitam */
+    padding: 15px 35px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 25px;
+}
+
+
+        .btn-start:hover {
+    background: #f1f1f1;
+    color: black;      /* tetap hitam saat hover */
+}
+
+
+    </style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="logo">Medicine Predictor</div>
+    <div class="menu">
+        <a href="/about">About Us</a>
+        <a href="/contact">Contact</a>
+    </div>
+</div>
+
+<div class="content">
+    <h1>Prediksi Penggunaan Obat Algoritma Random Forest</h1>
+    <p>Gunakan Machine Learning untuk memprediksi kebutuhan stok obat apotek</p>
+
+    <a href="/index" class="btn-start">Mulai Prediksi</a>
+</div>
+
+</body>
+</html>

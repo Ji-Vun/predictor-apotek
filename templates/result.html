@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hasil Prediksi</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef3ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        h3 {
+            margin-top: 0;
+            font-weight: normal;
+            color: #666;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+        }
+
+        th {
+            background: #3a6eff;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        tr:hover {
+            background: #f4f6ff;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 10px 20px;
+            background: #3a6eff;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .back-btn:hover {
+            background: #2f59d9;
+        }
+
+        .chart-container {
+            margin-top: 35px;
+            padding: 20px;
+            background: #fafbff;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Hasil Prediksi: {{ nama_obat }}</h2>
+    <h3>Jenis: {{ obat }}</h3>
+    <p><b>Rentang:</b> {{ start }} → {{ end }}</p>
+
+    <div class="chart-container">
+	<h3>Rekomendasi Stok Obat</h3>
+	<p><b>Saran stok:</b> {{ rekomendasi_stok }} unit</p>
+        <h3>Grafik Prediksi Penggunaan Obat</h3>
+        <img src="data:image/png;base64,{{ grafik }}" width="100%">
+    </div>
+
+    <table>
+        <tr>
+            <th>Tanggal</th>
+            <th>Prediksi Penggunaan (Per Hari)</th>
+        </tr>
+
+        {% for row in table %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="/" class="back-btn">← Kembali</a>
+
+</div>
+
+</body>
+</html>
